@@ -7,16 +7,27 @@ namespace TestAPI.FiguresClasses
 {
     public class Circle : Figure
     {
-        public Circle(double side1)
+        private double radius;   // Радиус круга
+
+        // Конструктор
+        public Circle(double radius)
         {
-            Side1 = side1;
+            this.radius = radius;
+        }
+
+        // Свойство, проверяем значение на отрицательность.
+        // Если значение отрицательное меняем его на аналогичное положительное.
+        public double Radius
+        {
+            get => radius;
+            set => radius = value < 0 ? -value : value;
         }
 
         public override double Area()
         {
             //S = PR^2
 
-            return Math.PI * Side1 * Side1;
+            return Math.PI * Radius * Radius;
         }
     }
 }

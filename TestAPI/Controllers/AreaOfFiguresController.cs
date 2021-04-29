@@ -26,14 +26,12 @@ namespace TestAPI.Controllers
         /// Вычисление площади фигуры
         /// </summary>
         /// <param name="type">Тип фигуры</param>
-        /// <param name="side1">Значение стороны 1 или радиус</param>
-        /// <param name="side2">Значение стороны 2</param>
-        /// <param name="side3">Значение стороны 3</param>
+        /// <param name="sides">Cтороны</param>
         /// <returns></returns>
         [HttpGet]
-        public double GetAreaCalculation(string type,double side1,double side2, double side3)
+        public double GetAreaCalculation([FromQuery] string type, [FromQuery] List<double> sides)
         {
-            double area = _service.AreaCalculation(type,side1,side2,side3);
+            double area = _service.AreaCalculation(type, sides);
             return area;
         }
     }

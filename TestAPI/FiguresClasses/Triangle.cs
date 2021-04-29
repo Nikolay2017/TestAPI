@@ -7,11 +7,34 @@ namespace TestAPI.FiguresClasses
 {
     public class Triangle : Figure
     {
+        private double side1, side2, side3;   // Стороны треугольника
+
+        // Конструктор
         public Triangle(double side1, double side2, double side3)
         {
-            Side1 = side1;
-            Side2 = side2;
-            Side3 = side3;
+            this.side1 = side1;
+            this.side2 = side2;
+            this.side3 = side3;
+        }
+
+        // Свойство, проверяем значение на отрицательность.
+        // Если значение отрицательное меняем его на аналогичное положительное.
+        public double Side1
+        {
+            get => side1;
+            set => side1 = value < 0 ? -value : value;
+        }
+
+        public double Side2
+        {
+            get => side2;
+            set => side2 = value < 0 ? -value : value;
+        }
+
+        public double Side3
+        {
+            get => side3;
+            set => side3 = value < 0 ? -value : value;
         }
 
         public override double Area()
